@@ -57,6 +57,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "inertia_rails", "~> 3.18"
+gem "inertia_rails", git: "https://github.com/inertiajs/inertia-rails.git", branch: "v3/ssr-in-development" # "~> 3.18"
 
 gem "vite_rails", "~> 3.0"

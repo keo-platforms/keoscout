@@ -1,17 +1,23 @@
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { defineConfig } from 'vite'
-import UnoCSS from 'unocss/vite'
-import RubyPlugin from 'vite-plugin-ruby'
+import unocss from 'unocss/vite'
+import ruby from 'vite-plugin-ruby'
 import extractorSvelte from '@unocss/extractor-svelte'
+import inertia from '@inertiajs/vite'
 
 export default defineConfig({
   plugins: [
-    UnoCSS({
+    unocss({
       extractors: [
         extractorSvelte(),
       ],
     }),
     svelte(),
-    RubyPlugin(),
+    ruby(),
+    inertia({
+      ssr: {
+        entry: 'entrypoints/inertia.js',
+      },
+    }),
   ],
 })
