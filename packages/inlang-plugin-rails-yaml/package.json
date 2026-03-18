@@ -1,0 +1,19 @@
+{
+  "name": "inlang-plugin-rails-yaml",
+  "version": "0.1.1",
+  "type": "module",
+  "description": "Inlang plugin that reads translations from Rails locale YAML files",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "keywords": [
+    "inlang",
+    "paraglide",
+    "rails",
+    "yaml",
+    "i18n",
+    "plugin"
+  ],
+  "license": "MIT"
+}

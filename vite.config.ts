@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { defineConfig } from 'vite'
 import unocss from 'unocss/vite'
@@ -14,6 +15,7 @@ export default defineConfig({
     }),
     svelte(),
     ruby(),
+    paraglideVitePlugin({ project: './project.inlang', outdir: './app/frontend/i18n', outputStructure: 'locale-modules' }),
     inertia({
       ssr: {
         entry: 'entrypoints/inertia.js',

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://inlang.com/schema/project-settings",
+  "baseLocale": "en",
+  "locales": [
+    "en",
+    "vn"
+  ],
+  "modules": [
+    "./node_modules/inlang-plugin-rails-yaml/index.js",
+    "https://cdn.jsdelivr.net/npm/@inlang/plugin-m-function-matcher@2/dist/index.js"
+  ],
+  "plugin.inlang.railsYaml": {
+    "pathPattern": "./config/locales/{locale}.yml"
+  }
+}
