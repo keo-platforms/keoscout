@@ -16,10 +16,11 @@ export default defineConfig({
     }),
     svelte(),
     ruby(),
-    // inertia({
-    //   ssr: {
-    //     entry: 'entrypoints/inertia.js',
-    //   },
-    // }),
+    inertia({
+      ssr: {
+        entry: 'entrypoints/inertia.js',
+        
+      },
+    }),
   ],
 })
