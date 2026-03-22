@@ -9,7 +9,7 @@
 </script>
 
 <header>
-  KeoFan
+  KeoScout
 </header>
 
 {@render children?.()}
