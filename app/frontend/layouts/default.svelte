@@ -15,5 +15,8 @@
 {@render children?.()}
 
 <footer>
-  <p>© 2026 Keo Platforms</p>
+  <p>
+    © 2026 Keo Platforms | <a href="/legal" class="underline">Legal Information</a>
+
+  </p>
 </footer>

@@ -43,7 +43,7 @@
 
 <main>
   <h2>
-    Set your price to unlock this post.
+    Set a price to unlock this post.
   </h2>
   <div class="mode-grid">
     <div class="mode-card" class:active={selectedMode === 'free'}>
