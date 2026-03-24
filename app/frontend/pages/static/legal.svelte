@@ -1,4 +1,5 @@
 <main>
+  <img src="/header.jpg" alt="">
   <h2>Keo Platforms</h2>
   <h3 id="th-ng-tin-ph-p-l-legal-information-">Thông Tin Pháp Lý (Legal Information)</h3>
   <blockquote>
