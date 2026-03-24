@@ -7,7 +7,7 @@ class PostsController < InertiaController
   def new
   end
 
-  def show
+  def edit
     post = Post.find(params[:id])
     @post = post.as_json(include: [ :files ])
   end
@@ -15,6 +15,6 @@ class PostsController < InertiaController
   def create
     post = Post.create!
     post.files.attach(params[:image])
-    redirect_to post
+    redirect_to edit_post_path(post)
   end
 end

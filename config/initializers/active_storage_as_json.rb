@@ -18,7 +18,7 @@ Rails.application.config.to_prepare do
     }
 
     def serializable_hash(options = nil)
-      super(options || DEFAULT_OPTIONS)
+      super(options.presence || DEFAULT_OPTIONS)
     end
 
     def path
