@@ -1,15 +1,18 @@
 <script>
   import * as m from '~/i18n/messages.js'
 
-  import { useForm } from '@inertiajs/svelte'
-
-  const form = useForm({
-    image: null
-  })
+  import { router } from '@inertiajs/svelte'
+  import { rememberFileForUpload } from '~/stores/upload.svelte.js'
 
   function oninput(e) {
-    form.image = e.target.files[0]
-    form.post('/posts')
+    const file = e.target.files[0]
+
+    if (!file) {
+      return
+    }
+
+    rememberFileForUpload(file)
+    router.post('/posts')
   }
 </script>
 
@@ -17,9 +20,4 @@
   <p>{m["app.title"]()}</p>
 
   <input type="file" {oninput} />
-  {#if form.progress}
-    <progress value={form.progress.percentage} max="100">
-        {form.progress.percentage}%
-    </progress>
-  {/if}
 </main>

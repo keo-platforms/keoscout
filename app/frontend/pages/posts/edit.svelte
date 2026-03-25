@@ -1,8 +1,17 @@
 <script>
   import { useForm } from '@inertiajs/svelte'
+  import { uploadRememberedFile } from '../../stores/upload.svelte.js'
+
   const { post } = $props()
   // svelte-ignore state_referenced_locally
   const form = useForm(post)
+  // svelte-ignore state_referenced_locally
+  let files = $state(post.files ?? [])
+
+  // svelte-ignore state_referenced_locally
+  const uploadState = uploadRememberedFile(`/posts/${post.id}/attach_file`, function(file) {
+    files = [...files, file]
+  })
 
   const presetPrices = ['25000', '50000', '100000']
   const initialPrice = String(form.price ?? '')
@@ -42,9 +51,36 @@
 </script>
 
 <main>
+<section class="upload-status">
   <h2>
     Set a price to unlock this post.
   </h2>
+  {#if files.length > 0}
+    <h3>Attached files</h3>
+    <ul>
+      {#each files as file}
+        <li>{file.filename}</li>
+      {/each}
+    </ul>
+  {/if}
+  
+  {#if uploadState.status === 'uploading' || uploadState.status === 'attaching'}
+    <h3>Uploading...</h3>
+    <p>{uploadState.fileName}</p>
+    <progress value={uploadState.progress} max="100">
+      {uploadState.progress}%
+    </progress>
+    {#if uploadState.status === 'attaching'}
+      <p>Finalizing upload...</p>
+    {/if}
+
+    {#if uploadState.error}
+      <p class="upload-error">{uploadState.error}</p>
+    {/if}
+  {/if}
+</section>
+<section>
+
   <div class="mode-grid">
     <div class="mode-card" class:active={selectedMode === 'free'}>
       <button
@@ -55,7 +91,7 @@
         Free
       </button>
     </div>
-
+    
     <div class="mode-card" class:active={selectedMode === 'paid'}>
       <button
         type="button"
@@ -64,20 +100,20 @@
       >
         Set a price
       </button>
-
+      
       {#if selectedMode === 'paid'}
-        <div class="mode-panel">
-          <input
-            class="amount-input"
-            type="number"
-            min="0"
-            step="1000"
-            placeholder="Enter amount"
-            bind:value={paidPriceInput}
-          >
-
-          <div class="preset-buttons">
-            <button
+      <div class="mode-panel">
+        <input
+        class="amount-input"
+        type="number"
+        min="0"
+        step="1000"
+        placeholder="Enter amount"
+        bind:value={paidPriceInput}
+        >
+        
+        <div class="preset-buttons">
+          <button
               type="button"
               class="preset-button"
               class:active={selectedPreset === '25000'}
@@ -103,15 +139,12 @@
             </button>
           </div>
         </div>
-      {/if}
+        {/if}
+      </div>
     </div>
-  </div>
+  </section>
 
-  
-  {#each post.files as file}
-    <div>{file.filename}</div>
-  {/each}
-  {form.price}
+  <button class="btn" onclick={() => form.put(`/posts/${post.id}`)}>Save</button>
 </main>
 
 <style>
@@ -177,6 +210,12 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.5rem;
+  }
+
+
+  .upload-error {
+    color: #b91c1c;
+    font-weight: 600;
   }
 
   .preset-button {

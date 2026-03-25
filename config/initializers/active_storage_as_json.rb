@@ -14,7 +14,7 @@ Rails.application.config.to_prepare do
   class ActiveStorage::Attachment < ActiveStorage::Record
     DEFAULT_OPTIONS = {
       only: [],
-      methods: [ :filename, :signed_id, :path ]
+      methods: [ :id, :filename, :byte_size, :content_type, :signed_id, :path ]
     }
 
     def serializable_hash(options = nil)

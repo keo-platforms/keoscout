@@ -1,3 +1,12 @@
+:root {
+  --primary: #e54683;
+  --on-primary: #ffffff;
+  --background: #f9fafb;
+  --on-background: #111827;
+  --surface: #ffffff;
+  --on-surface: #111827;
+}
+
 #app {
   display: grid;
   margin-inline: auto;
@@ -46,4 +55,14 @@ h2 {
 h3 {
   font-size: 1.25rem;
   font-weight: 800;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  text-decoration: none;
+  border-radius: 99px;
 }

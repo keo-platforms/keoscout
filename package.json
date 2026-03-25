@@ -20,5 +20,8 @@
   "scripts": {
     "machine-translate": "inlang machine translate --project project.inlang",
     "i18n:compile": "node ./script/compile-paraglide.mjs"
+  },
+  "dependencies": {
+    "@rails/activestorage": "^8.1.300"
   }
 }
