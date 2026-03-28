@@ -9,7 +9,8 @@
   let files = $state(post.files ?? [])
 
   // svelte-ignore state_referenced_locally
-  const uploadState = uploadRememberedFile(`/posts/${post.id}/attach_file`, function(file) {
+  const uploadState = uploadRememberedFile(`/posts/${post.id}/attach_file`)
+  uploadState?.task.then(function(file) {
     files = [...files, file]
   })
 
@@ -64,7 +65,7 @@
     </ul>
   {/if}
   
-  {#if uploadState.status === 'uploading' || uploadState.status === 'attaching'}
+  {#if uploadState?.status === 'uploading' || uploadState?.status === 'attaching'}
     <h3>Uploading...</h3>
     <p>{uploadState.fileName}</p>
     <progress value={uploadState.progress} max="100">

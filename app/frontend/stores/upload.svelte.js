@@ -4,14 +4,14 @@ export function rememberFileForUpload(file) {
   rememberedFile = file ?? null
 }
 
-export function uploadRememberedFile(attachURL, onDone) {
-  if (!rememberedFile) return {}
+export function uploadRememberedFile(attachURL) {
+  if (!rememberedFile) return null
   const file = rememberedFile
   rememberedFile = null
-  return upload(rememberedFile, attachURL, onDone)
+  return upload(file, attachURL)
 }
 
-export function upload(file, attachURL, onDone) {
+export function upload(file, attachURL) {
   const state = $state({
     fileName: file?.name ?? null,
     status: file ? 'idle' : 'empty',
@@ -25,7 +25,7 @@ export function upload(file, attachURL, onDone) {
     state.progress = 0
     state.error = null
 
-    createDirectUpload(file, state)
+    state.task = createDirectUpload(file, state)
       .then((blob) => {
         state.status = 'attaching'
         state.progress = 100
@@ -52,7 +52,7 @@ export function upload(file, attachURL, onDone) {
         state.file = file ?? null
         state.status = 'complete'
         state.progress = 100
-        onDone?.(file)
+        return Promise.resolve(file)
       })
       .catch((error) => {
         state.status = 'error'
