@@ -8,15 +8,16 @@
   setLocale(locale)
 </script>
 
-<header>
-  <img src="~/assets/logo.svg" alt="Keo">
+<header class="py-2">
+  <a href="/">
+    <img src="~/assets/logo.svg" alt="Keo" class="h-12">
+  </a>
 </header>
 
 {@render children?.()}
 
 <footer>
   <p>
-    © 2026 Keo Platforms | <a href="/legal" class="underline">Legal Information</a>
-
+    © 2026 Keo Platforms | <a href="/legal">Legal Information</a>
   </p>
 </footer>

@@ -1,6 +1,9 @@
 <main>
   <img src="~/assets/header.jpg" alt="">
-  <h2>Keo Platforms</h2>
+  <h2>About Keo</h2>
+  <p>
+    Keo is a brand by Keo Platforms LLC. For more information about our legal details and contact information, please refer to the sections below.
+  </p>
   <h3 id="th-ng-tin-ph-p-l-legal-information-">Thông Tin Pháp Lý (Legal Information)</h3>
   <blockquote>
   <p><em>Dưới đây là các thông tin bắt buộc để tích hợp cổng thanh toán MoMo/ZaloPay và tuân thủ pháp luật Việt Nam:</em></p>
@@ -19,10 +22,14 @@
   <li><strong>Email hỗ trợ người dùng:</strong> support@keoscout.vn</li>
   <li><strong>Email hợp tác kinh doanh:</strong> business@keoscout.vn</li>
   <li>
-    <strong>Hotline (Zalo):</strong>
+    <strong>Zalo:</strong>
     <a href="https://zalo.me/84869344003" target="_blank" rel="noopener noreferrer">
       +84 869 344 003
     </a>
   </li>
   </ul>
 </main>
+
+<style>
+
+</style>
