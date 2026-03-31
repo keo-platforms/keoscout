@@ -9,7 +9,7 @@
 </script>
 
 <header>
-  KeoScout
+  <img src="~/assets/logo.svg" alt="Keo">
 </header>
 
 {@render children?.()}

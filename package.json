@@ -22,6 +22,7 @@
     "i18n:compile": "node ./script/compile-paraglide.mjs"
   },
   "dependencies": {
-    "@rails/activestorage": "^8.1.300"
+    "@rails/activestorage": "^8.1.300",
+    "svelte-preprocess-import-assets": "^1.1.0"
   }
 }
