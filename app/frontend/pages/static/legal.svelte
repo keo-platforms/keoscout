@@ -2,15 +2,10 @@
   <img src="~/assets/header.jpg" alt="">
   <h2>About Keo</h2>
   <p>
-    Keo is a brand by Keo Platforms LLC. For more information about our legal details and contact information, please refer to the sections below.
+    Keo is a brand by Keo Platforms LLC.
   </p>
-  <h3 id="th-ng-tin-ph-p-l-legal-information-">Thông Tin Pháp Lý (Legal Information)</h3>
-  <blockquote>
-  <p><em>Dưới đây là các thông tin bắt buộc để tích hợp cổng thanh toán MoMo/ZaloPay và tuân thủ pháp luật Việt Nam:</em></p>
-  </blockquote>
   <ul>
   <li><strong>Tên đơn vị chủ quản:</strong> Công ty TNHH Keo Platforms (Keo Platforms LLC)</li>
-  <li><strong>Tên ứng dụng:</strong> KeoScout</li>
   <li><strong>Người đại diện pháp luật:</strong> Stefan Buhrmester</li>
   <li><strong>Mã số doanh nghiệp:</strong> 0402268222</li>
   <li><strong>Ngày cấp:</strong> 20/03/2025</li>

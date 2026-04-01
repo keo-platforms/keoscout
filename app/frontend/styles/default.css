@@ -57,38 +57,38 @@ h2 {
 h3 {
   font-size: 1.25rem;
   font-weight: 800;
-    margin: 1.25rem 0 0.75rem;
+  margin: 1.25rem 0 0.75rem;
 }
 
 .btn {
   display: block;
-  width: 100%;
-  padding: 0.5em 1em;
+  font-weight: 600;
+  padding: 0.7em 1em;
   background-color: var(--primary);
   color: var(--on-primary);
   text-decoration: none;
-  border-radius: 99px;
+  border-radius: 1.5em;
 }
 
 
-  p {
-    margin-bottom: 1rem;
-  }
+p {
+  margin-bottom: 1rem;
+}
 
-  blockquote {
-    border-left: 4px solid #ddd;
-    padding-left: 1rem;
-    margin: 1.5rem 0;
-    font-style: italic;
-    color: #666;
-  }
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #666;
+}
 
-  ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
+ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
 
-  li {
-    margin-bottom: 0.5rem;
-  }
+li {
+  margin-bottom: 0.5rem;
+}

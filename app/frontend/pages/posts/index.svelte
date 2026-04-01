@@ -6,7 +6,7 @@ import * as m from '~/i18n/messages.js'
 <main>
   <section>
     <img src="~/assets/header.jpg" alt="">
-    <h2>Welcome to KeoScout</h2>
+    <h2>{m['app.title']()}</h2>
     <p>{m['app.invite_only']()}</p>
   </section>
 </main>
