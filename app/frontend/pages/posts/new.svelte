@@ -17,7 +17,6 @@
 </script>
 
 <main>
-  <p>{m["app.title"]()}</p>
-
+  <h2>New upload</h2>
   <input type="file" {oninput} />
 </main>

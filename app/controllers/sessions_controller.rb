@@ -5,6 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
+    identity = Identity.from_omniauth!(auth)
+
+    cookies[:signed_user_id] = { value: identity.user.signed_id }
 
     flash[:notice] = "Signed in successfully."
     render layout: false

@@ -5,6 +5,7 @@ class PostsController < InertiaController
   end
 
   def new
+
   end
 
   def show
@@ -25,7 +26,6 @@ class PostsController < InertiaController
 
   def create
     post = Post.create!
-    post.files.attach(params[:image]) if params[:image].present?
     redirect_to edit_post_path(post)
   end
 

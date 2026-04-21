@@ -12,6 +12,12 @@
   </button>
 </header>
 
+<nav>
+  <a href="/">
+    Home
+  </a>
+</nav>
+
 {@render children?.()}
 
 <footer>

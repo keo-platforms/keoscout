@@ -9,6 +9,12 @@ import inertia from '@inertiajs/vite'
 export default defineConfig({
   plugins: [
     paraglideVitePlugin({ project: './project.inlang', outdir: './app/frontend/i18n', outputStructure: 'locale-modules' }),
+    inertia({
+      // ssr: {
+      //   entry: 'entrypoints/inertia.js',
+      // },
+    }),
+    
     unocss({
       extractors: [
         extractorSvelte(),
@@ -16,11 +22,5 @@ export default defineConfig({
     }),
     svelte(),
     ruby(),
-    inertia({
-    //   ssr: {
-    //     entry: 'entrypoints/inertia.js',
-        
-    //   },
-    }),
   ],
 })

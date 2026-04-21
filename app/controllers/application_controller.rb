@@ -3,6 +3,16 @@ class ApplicationController < ActionController::Base
   allow_browser versions: :modern
 
   before_action :set_locale
+  before_action :save_refcode
+  before_action :redirect_after_login
+
+  rescue_from ActiveRecord::RecordInvalid do |exception|
+    raise exception unless request.inertia?
+
+    redirect_back inertia: {
+      errors: exception.record.errors
+    }
+  end
 
   inertia_share do
     {
@@ -11,6 +21,22 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def redirect_after_login
+    return unless cookies[:signed_user_id].present? && !current_user
+    if session[:after_login_path].present?
+      redirect_to session.delete(:after_login_path)
+    end
+  end
+
+  def save_refcode
+    return unless params[:ref].present?
+
+    cookies[:refcode] = {
+      value: params[:ref],
+      expires: 30.days.from_now
+    }
+  end
 
   def set_locale
     I18n.locale = extract_locale || I18n.default_locale
