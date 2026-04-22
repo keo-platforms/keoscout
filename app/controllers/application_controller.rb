@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :save_refcode
   before_action :redirect_after_login
 
+
   rescue_from ActiveRecord::RecordInvalid do |exception|
     raise exception unless request.inertia?
 
@@ -16,17 +17,21 @@ class ApplicationController < ActionController::Base
 
   inertia_share do
     {
-      locale: I18n.locale
+      locale: I18n.locale,
+      current_user: current_user.as_json
     }
   end
 
   private
 
+  def current_user
+    Current.user ||= User.find_by(id: session[:user_id])
+  end
+
   def redirect_after_login
-    return unless cookies[:signed_user_id].present? && !current_user
-    if session[:after_login_path].present?
-      redirect_to session.delete(:after_login_path)
-    end
+    return unless current_user
+    return unless session[:after_login_path].present?
+    redirect_to session.delete(:after_login_path)
   end
 
   def save_refcode

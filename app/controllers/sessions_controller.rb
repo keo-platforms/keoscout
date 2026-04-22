@@ -7,14 +7,14 @@ class SessionsController < ApplicationController
     auth = request.env["omniauth.auth"]
     identity = Identity.from_omniauth!(auth)
 
-    cookies[:signed_user_id] = { value: identity.user.signed_id }
+    session[:user_id] = identity.user_id
 
     flash[:notice] = "Signed in successfully."
     render layout: false
   end
 
   def destroy
-    cookies.delete(:signed_user_id)
+    session.delete(:user_id)
     redirect_to root_path, notice: "Signed out successfully."
   end
 end
