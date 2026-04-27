@@ -1,8 +1,8 @@
 <main>
   <img src="~/assets/header.jpg" alt="">
-  <h2>About Keo</h2>
+  <h2>About KeoScout</h2>
   <p>
-    Keo is a brand by Keo Platforms LLC.
+    KeoScout is a product by Keo Platforms LLC.
   </p>
   <ul>
   <li><strong>Tên đơn vị chủ quản:</strong> Công ty TNHH Keo Platforms (Keo Platforms LLC)</li>
@@ -14,8 +14,8 @@
   <h3 id="-a-ch-li-n-h-contact-us-">Địa Chỉ &amp; Liên Hệ (Contact Us)</h3>
   <ul>
   <li><strong>Trụ sở chính:</strong> 26-28 Hà Chương, P. Phước Mỹ, Q. Sơn Trà, Tp. Đà Nẵng</li>
-  <li><strong>Email hỗ trợ người dùng:</strong> support@keoscout.vn</li>
-  <li><strong>Email hợp tác kinh doanh:</strong> business@keoscout.vn</li>
+  <li><strong>Email hỗ trợ người dùng:</strong> support@keoscout.com</li>
+  <li><strong>Email hợp tác kinh doanh:</strong> business@keoscout.com</li>
   <li>
     <strong>Zalo:</strong>
     <a href="https://zalo.me/84869344003" target="_blank" rel="noopener noreferrer">

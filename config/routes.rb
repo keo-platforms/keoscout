@@ -18,13 +18,16 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  root "posts#index"
-
   # OmniAuth callback routes
   get "/auth/:provider/callback", to: "sessions#create"
   get "/auth/failure", to: "sessions#failure"
 
+  # redirect to posts/new
+  get "upload" => redirect("/posts/new")
+
   # Static pages
   inertia "legal" => "static/legal"
+
+  # Defines the root path route ("/")
+  root "posts#index"
 end

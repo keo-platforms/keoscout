@@ -17,6 +17,7 @@
 </script>
 
 <main>
-  <h2>New upload</h2>
+  <h1>Turn your passion into income</h1>
+  <h2>Start with your first photo</h2>
   <input type="file" {oninput} />
 </main>

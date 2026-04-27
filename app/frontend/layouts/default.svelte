@@ -16,7 +16,7 @@
 
 <footer>
   <p>
-    © 2026 Keo Platforms | <a href="/legal">Legal Information</a>
+    Proudly made in Vietnam 🇻🇳 | <a href="/legal">About KeoScout</a>
   </p>
 </footer>
 

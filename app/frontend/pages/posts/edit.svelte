@@ -6,12 +6,12 @@
   // svelte-ignore state_referenced_locally
   const form = useForm(post)
   // svelte-ignore state_referenced_locally
-  let files = $state(post.files ?? [])
+  let images = $state(post.images ?? [])
 
   // svelte-ignore state_referenced_locally
   const uploadState = uploadRememberedFile(`/posts/${post.id}/attach_file`)
   uploadState?.task.then(function(file) {
-    files = [...files, file]
+    images = [...images, file]
   })
 
   const presetPrices = ['25000', '50000', '100000']
@@ -53,18 +53,13 @@
 
 <main>
 <section class="upload-status">
-  <h2>
-    Set a price to unlock this post.
-  </h2>
-  {#if files.length > 0}
-    <h3>Attached files</h3>
+  {#if images.length > 0}
     <ul>
-      {#each files as file}
-        <li>{file.filename}</li>
+      {#each images as image}
+        <img src={image.url} alt="Uploaded file" class="uploaded-file-thumbnail">
       {/each}
     </ul>
   {/if}
-  
   {#if uploadState?.status === 'uploading' || uploadState?.status === 'attaching'}
     <h3>Uploading...</h3>
     <p>{uploadState.fileName}</p>
@@ -78,10 +73,14 @@
     {#if uploadState.error}
       <p class="upload-error">{uploadState.error}</p>
     {/if}
-  {/if}
-</section>
-<section>
-
+    {/if}
+  </section>
+  <section>
+  
+  <h2>
+    Set a price to unlock this image.
+  </h2>
+    
   <div class="mode-grid">
     <div class="mode-card" class:active={selectedMode === 'free'}>
       <button

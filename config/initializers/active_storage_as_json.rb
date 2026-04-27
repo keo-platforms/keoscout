@@ -10,19 +10,23 @@ class ActiveStorage::Attached::Many
   end
 end
 
+
 Rails.application.config.to_prepare do
   class ActiveStorage::Attachment < ActiveStorage::Record
     DEFAULT_OPTIONS = {
       only: [],
-      methods: [ :id, :filename, :byte_size, :content_type, :signed_id, :path ]
+      methods: [ :id, :filename, :byte_size, :content_type, :signed_id, :url ]
     }
 
     def serializable_hash(options = nil)
-      super(options.presence || DEFAULT_OPTIONS)
-    end
+      options = DEFAULT_OPTIONS.merge(options || {})
+      variants = options.delete(:variants) || []
 
-    def path
-      Rails.application.routes.url_helpers.rails_storage_proxy_url(self, only_path: true) # host: Rails.application.config.action_controller.asset_host)
+      super(options.presence || DEFAULT_OPTIONS).merge(
+        variants: variants.each_with_object({}) do |variant, hash|
+          hash[variant] = self.variant(variant).processed.url
+        end
+      )
     end
   end
 end

@@ -55,12 +55,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_20_222220) do
     t.integer "price", default: 0, null: false
     t.datetime "published_at"
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
-    t.string "email"
-    t.string "password_digest"
+    t.integer "earnings", default: 0
+    t.string "locale", default: "en"
+    t.string "referral_code"
+    t.integer "referrals_count", default: 0
+    t.integer "referrer_id"
     t.datetime "updated_at", null: false
   end
 

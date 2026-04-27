@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
-    identity = Identity.from_omniauth!(auth)
+    Current.user = Identity.from_omniauth!(auth).user
 
-    session[:user_id] = identity.user_id
+    session[:user_id] = Current.user.id
 
     flash[:notice] = "Signed in successfully."
     render layout: false
